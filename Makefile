@@ -1,10 +1,7 @@
 SRCD	= srcs/
-SRCS	= ft_putchar.c \
-		  ft_putstr.c \
-		  ft_strcmp.c \
-		  ft_strlen.c \
-		  ft_swap.c
-INCD	= includes/
+SRCS	= ft_isalpha.c
+		  #ft_swap.c
+INCD	= ./
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
 
@@ -32,4 +29,8 @@ re:			fclean all
 .PHONY:		all clean fclean re
 
 check:
-			norminette -R CheckForbiddenSourceHeader
+			norminette ft_*.c libft.h -R CheckForbiddenSourceHeader
+
+test:		${NAME}
+			gcc tests/*.c -L. -lft -lcriterion -I. -o tests/tests.out
+			tests/tests.out && rm tests/tests.out
