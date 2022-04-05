@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 21:16:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 00:19:36 by msubtil-         ###   ########.fr       */
+/*   Created: 2022/04/05 00:17:26 by msubtil-          #+#    #+#             */
+/*   Updated: 2022/04/05 00:21:37 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <libft.h>
 
-# include <stddef.h>
-# define FT_ASCII_CONTROL_LOWER 0
-# define FT_ASCII_CONTROL_UPPER 31
-# define FT_ASCII_DELETE 127
+size_t	ft_strlen(const char *s)
+{
+	int l;
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-size_t	ft_strlen(const char *s);
-
-#endif
+	l = 0;
+	while (*s++ != '\0')
+		l++;
+	return (l);
+}
