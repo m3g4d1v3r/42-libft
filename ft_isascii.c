@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 22:16:39 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/04 23:32:32 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/05 00:12:59 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_isascii(int c)
 {
-	return ((c & ~0x7f) == 0);
+	if (c >= FT_ASCII_CONTROL_LOWER && c <= FT_ASCII_DELETE)
+		return (1);
+	return (0);
 }
