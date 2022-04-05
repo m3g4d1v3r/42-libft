@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:01:47 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 12:35:23 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:51:25 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t n)
 	byte_offset = 0;
 	while (byte_offset < n)
 	{
-		*((unsigned char *)(s + byte_offset)) = '\0';
+		*((t_uchar *)(s + byte_offset)) = '\0';
 		byte_offset++;
 	}
 }
