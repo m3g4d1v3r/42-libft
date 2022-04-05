@@ -1,6 +1,6 @@
 SRCD	= srcs/
-SRCS	= ft_isalpha.c
-		  #ft_swap.c
+SRCS	= ft_isalpha.c \
+		  ft_isdigit.c
 INCD	= ./
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
