@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 00:17:26 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 00:21:37 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:12:38 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int l;
+	size_t	l;
 
 	l = 0;
 	while (*s++ != '\0')
