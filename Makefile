@@ -8,7 +8,8 @@ SRCS	= ft_isalpha.c \
 		  ft_memset.c \
 		  ft_bzero.c \
 		  ft_memcpy.c \
-		  ft_memmove.c
+		  ft_memmove.c \
+		  ft_strlcpy.c
 INCD	= ./
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
@@ -40,5 +41,5 @@ check:
 			norminette ft_*.c libft.h -R CheckForbiddenSourceHeader
 
 test:		${NAME}
-			gcc tests/*.c -L. -lft -lcriterion -I. -o tests/tests.out
+			gcc tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
 			tests/tests.out && rm tests/tests.out
