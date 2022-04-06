@@ -9,7 +9,8 @@ SRCS	= ft_isalpha.c \
 		  ft_bzero.c \
 		  ft_memcpy.c \
 		  ft_memmove.c \
-		  ft_strlcpy.c
+		  ft_strlcpy.c \
+		  ft_strlcat.c
 INCD	= ./
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
