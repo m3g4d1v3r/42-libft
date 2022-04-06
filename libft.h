@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:16:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/06 19:29:24 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/06 20:09:21 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
