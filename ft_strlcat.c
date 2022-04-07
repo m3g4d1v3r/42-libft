@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 20:56:36 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 21:53:07 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/06 21:18:53 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	byte_offset;
 	size_t	dst_len;
+	size_t	src_len;
+	size_t	byte_offset;
 
-	if (dstsize == 0)
-		return (0);
 	dst_len = ft_strlen(dst);
-	if ((dst_len + 1) > dstsize)
-		return (0);
+	src_len = ft_strlen(src);
 	byte_offset = 0;
 	while (byte_offset < (dstsize - dst_len - 1))
 	{
@@ -29,5 +27,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		byte_offset++;
 	}
 	*(dst + dst_len + byte_offset) = '\0';
-	return (byte_offset + dst_len);
+	return (dst_len + src_len);
 }
