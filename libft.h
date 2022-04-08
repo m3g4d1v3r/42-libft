@@ -6,14 +6,17 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:16:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/07 22:01:40 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/07 23:58:57 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stddef.h>
+# include <stdint.h>
+# include <stdlib.h>
 # define FT_ASCII_CONTROL_LOWER 0
 # define FT_ASCII_CONTROL_UPPER 31
 # define FT_ASCII_DELETE 127
@@ -41,5 +44,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif

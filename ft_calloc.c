@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 22:01:16 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/07 23:48:01 by msubtil-         ###   ########.fr       */
+/*   Created: 2022/04/07 23:20:38 by msubtil-          #+#    #+#             */
+/*   Updated: 2022/04/08 00:05:48 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_atoi(const char *nptr)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	acc;
+	void	*res_ptr;
 
-	acc = 0;
-	while (*nptr != '\0')
-	{
-		if (ft_isdigit(*nptr))
-		{
-			if (acc > INT_MAX / 10)
-				return (-1);
-			if (10 * acc > INT_MAX - (*nptr - '0'))
-				return (-1);
-			acc = 10 * acc + (*nptr - '0');
-		}
-		else if (*nptr != ' ')
-			return (0);
-		nptr++;
-	}
-	return (acc);
+	if (nmemb > SIZE_MAX / size)
+		return ((void *) 0);
+	res_ptr = malloc(nmemb * size);
+	ft_memset(res_ptr, '\0', nmemb * size);
+	return (res_ptr);
 }
