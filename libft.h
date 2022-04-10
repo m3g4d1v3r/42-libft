@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:16:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/07 23:58:57 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/10 13:25:52 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(char *src);
 
 #endif
