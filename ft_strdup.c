@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 22:03:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/10 13:30:29 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/12 21:29:02 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_strdup(char *src)
 	size_t	str_size;
 
 	str_size = ft_strlen(src);
-	new_str = (char *) malloc(sizeof(char) * str_size);
-	while (*src)
+	new_str = (char *) malloc(sizeof(char) * (str_size + 1));
+	if (new_str == (void *) 0)
+		return (new_str);
+	while (*src != '\0')
 		*new_str++ = *src++;
 	*new_str = '\0';
 	return (new_str - str_size);
