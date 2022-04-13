@@ -24,7 +24,8 @@ SRCS	= ft_isalpha.c \
 		  ft_strdup.c \
 		  ft_substr.c \
 		  ft_strjoin.c \
-		  ft_strtrim.c
+		  ft_strtrim.c \
+		  ft_split.c
 INCD	= ./
 OBJS	= ${SRCS:.c=.o}
 NAME	= libft.a
@@ -58,7 +59,7 @@ check:
 
 test:		${NAME}
 			gcc tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
-			time tests/tests.out
+			tests/tests.out
 			rm tests/tests.out
 
 valtest:	${NAME}
