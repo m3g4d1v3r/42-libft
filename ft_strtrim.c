@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/12 21:36:20 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/12 22:14:36 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int	ft_low_offset(char const *s1, char const *set, size_t len)
 	return (low_index);
 }
 
-int	ft_up_offset(char const *s1, char const *set, size_t len)
+int	ft_high_offset(char const *s1, char const *set, size_t len)
 {
-	int	up_index;
+	int	high_index;
 
-	up_index = len - 1;
-	while (ft_chrcmpset(s1[up_index], set) && (size_t) up_index >= 0)
-		up_index--;
-	return (up_index);
+	high_index = len - 1;
+	while (ft_chrcmpset(s1[high_index], set) && (size_t) high_index >= 0)
+		high_index--;
+	return (high_index);
 }
 
 char	*ft_fill(char const *s1, int offset, size_t len)
@@ -64,10 +64,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	low_index;
-	size_t	up_index;
+	size_t	high_index;
 
 	len = ft_strlen(s1);
 	low_index = ft_low_offset(s1, set, len);
-	up_index = ft_up_offset(s1, set, len);
-	return (ft_fill(s1, low_index, (up_index - low_index + 1)));
+	high_index = ft_high_offset(s1, set, len);
+	return (ft_fill(s1, low_index, (high_index - low_index + 1)));
 }
