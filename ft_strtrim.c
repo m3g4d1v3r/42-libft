@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/19 20:55:34 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:46:18 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ char	*ft_fill(char const *s1, int offset, size_t len)
 	size_t	index;
 
 	res = (char *) malloc(sizeof(char) * len);
-	if (res == (void *) 0)
-		return (res);
+	if (res == NULLPTR)
+		return (NULLPTR);
 	index = 0;
 	while (index < len)
 	{

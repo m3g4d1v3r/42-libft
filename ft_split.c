@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/13 22:14:25 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:41:23 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ char	**ft_split(char const *s, char c)
 	table_size = ft_get_substrs_nb(s, c) + 1;
 	table = (char **) malloc(sizeof(char *) * table_size);
 	ft_fill_table(table, --s, c);
-	table[table_size - 1] = (void *) 0;
+	table[table_size - 1] = NULLPTR;
 	return (table);
 }

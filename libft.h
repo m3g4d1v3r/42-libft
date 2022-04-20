@@ -21,6 +21,7 @@
 # define FT_ASCII_CONTROL_LOWER 0
 # define FT_ASCII_CONTROL_UPPER 31
 # define FT_ASCII_DELETE 127
+# define NULLPTR (void *) 0
 
 typedef unsigned char	t_uchar;
 typedef unsigned int	t_uint;

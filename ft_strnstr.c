@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 22:13:36 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/10 13:21:50 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:45:47 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	l_len = ft_strlen(little);
 	if (ft_strlen(big) < l_len)
-		return ((char *) 0);
+		return (NULLPTR);
 	b_hash = ft_hash(big, l_len);
 	l_hash = ft_hash(little, l_len);
 	pow = ft_bin_base_msb(BASE_SHIFTER, (l_len - 1));
@@ -71,5 +71,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		b_hash = ft_rolling_hash(*(big + l_len), *(big), pow, b_hash);
 		big++;
 	}
-	return ((char *) 0);
+	return (NULLPTR);
 }

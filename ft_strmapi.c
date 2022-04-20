@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 23:26:40 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/19 23:36:24 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:46:00 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	size = ft_strlen(s);
 	res_str = (char *) malloc(sizeof(char) * (size + 1));
-	if (res_str == (void *) 0)
-		return ((char *) 0);
+	if (res_str == NULLPTR)
+		return (NULLPTR);
 	index = 0;
 	while (index < size)
 	{

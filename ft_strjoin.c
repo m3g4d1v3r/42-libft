@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/12 16:56:41 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:42:48 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len = ft_strlen(s1) + ft_strlen(s2);
 	res = (char *) malloc(sizeof(char) * len);
-	if (res == (void *) 0)
-		return (res);
+	if (res == (NULLPTR))
+		return (NULLPTR);
 	while (*s1)
 		*res++ = *s1++;
 	while (*s2)

@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 19:29:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/06 19:51:40 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:44:00 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ char	*ft_strchr(const char *s, int c)
 		s++;
 	if (*s == c)
 		return ((char *) s);
-	return ((void *) 0);
+	return (NULLPTR);
 }
