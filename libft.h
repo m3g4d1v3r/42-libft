@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:16:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/19 22:28:24 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 00:00:03 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
+# include <unistd.h>
 # define FT_ASCII_CONTROL_LOWER 0
 # define FT_ASCII_CONTROL_UPPER 31
 # define FT_ASCII_DELETE 127
 
 typedef unsigned char	t_uchar;
+typedef unsigned int	t_uint;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -51,5 +53,11 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_striteri(char const *s, char (*f)(unsigned int, char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif
