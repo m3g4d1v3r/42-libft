@@ -6,15 +6,15 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:24:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/19 23:22:28 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/19 23:30:38 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_int_size(int n)
+size_t	ft_int_size(int n)
 {
-	int	size;
+	size_t	size;
 
 	size = 0;
 	while (n >= 1)
@@ -25,7 +25,7 @@ int	ft_int_size(int n)
 	return (size);
 }
 
-char	*ft_allocate_int_str(int size, short neg)
+char	*ft_allocate_int_str(size_t size, short neg)
 {
 	char	*str;
 
@@ -50,9 +50,9 @@ void	ft_swap_chr(char *p1, char *p2)
 	*p2 = tmp;
 }
 
-void	ft_reverse_str(char *str, int size, short neg)
+void	ft_reverse_str(char *str, size_t size, short neg)
 {
-	int	index;
+	size_t	index;
 
 	index = 0;
 	while (index < (size / 2))
@@ -69,8 +69,8 @@ char	*ft_itoa(int n)
 {
 	short	neg;
 	char	*str;
-	int		index;
-	int		size;
+	size_t	index;
+	size_t	size;
 
 	neg = 0;
 	index = 0;
