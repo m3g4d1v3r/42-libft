@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/12 22:14:36 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/19 20:55:34 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	high_index;
 
 	len = ft_strlen(s1);
+	if (len == 0)
+		return (ft_strdup(""));
 	low_index = ft_low_offset(s1, set, len);
 	high_index = ft_high_offset(s1, set, len);
 	return (ft_fill(s1, low_index, (high_index - low_index + 1)));

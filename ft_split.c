@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/13 00:45:09 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/13 22:14:25 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,25 +54,26 @@ void	ft_fill_table(char **dst, char const *s, char c)
 
 	word_state = 0;
 	str_index = 0;
-	while (*s)
+	while (*++s)
 	{
 		if (word_state == 0 && *s != c)
 		{
-				word_state = 1;
-				*dst = malloc(sizeof(char) * ft_strlen_split(s, c));
-				(*dst)[str_index++] = *s;
+			word_state = 1;
+			*dst = malloc(sizeof(char) * (ft_strlen_split(s, c) + 1));
+			(*dst)[str_index++] = *s;
 		}
 		else if (word_state == 1 && *s == c)
 		{
 			word_state = 0;
-			(*dst)[str_index] = '\0';
+			(*dst)[str_index++] = '\0';
 			str_index = 0;
 			dst++;
 		}
 		else if (word_state == 1 && *s != c)
 			(*dst)[str_index++] = *s;
-		s++;
 	}
+	if (word_state == 1)
+		(*dst)[str_index++] = '\0';
 }
 
 char	**ft_split(char const *s, char c)
@@ -82,7 +83,7 @@ char	**ft_split(char const *s, char c)
 
 	table_size = ft_get_substrs_nb(s, c) + 1;
 	table = (char **) malloc(sizeof(char *) * table_size);
-	ft_fill_table(table, s, c);
+	ft_fill_table(table, --s, c);
 	table[table_size - 1] = (void *) 0;
 	return (table);
 }
