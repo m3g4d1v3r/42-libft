@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:16:43 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/20 00:00:03 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/20 19:26:39 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,13 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif

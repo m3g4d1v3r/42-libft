@@ -33,8 +33,11 @@ SRCS	= ft_isalpha.c \
 		  ft_putstr_fd.c \
 		  ft_putendl_fd.c \
 		  ft_putnbr_fd.c
-INCD	= ./
 OBJS	= ${SRCS:.c=.o}
+BONUS	= ft_lstnew.c \
+		  ft_lstadd_front.c
+BOBJS	= ${BONUS:.c=.o}
+INCD	= ./
 NAME	= libft.a
 
 CC		= gcc
@@ -48,6 +51,9 @@ VALGRIND = --trace-children=yes --leak-check=full --quiet --fair-sched=yes
 
 ${NAME}:	${OBJS}
 			ar rcs ${NAME} ${OBJS}
+
+bonus:		${NAME} ${BOBJS}
+			ar rcs ${NAME} ${BOBJS}
 
 all:		${NAME}
 
@@ -68,6 +74,12 @@ test:		${NAME}
 			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
 			tests/tests.out
 			rm tests/tests.out
+
+bonus_test:	bonus
+			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
+			tests/tests.out
+			rm tests/tests.out
+
 
 valtest:	${NAME}
 			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
