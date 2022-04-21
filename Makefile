@@ -73,24 +73,3 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
-
-check:
-			norminette ft_*.c libft.h -R CheckForbiddenSourceHeader
-
-test:		${NAME}
-			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			./tests.out && rm tests.out
-
-bonus_test:	bonus
-			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			./tests.out && rm tests.out
-
-
-valtest:	${NAME}
-			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			time valgrind ${VALGRIND} ./tests.out && rm tests.out
-
-bonvaltest:	bonus
-			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			time valgrind ${VALGRIND} ./tests.out && rm tests.out
-
