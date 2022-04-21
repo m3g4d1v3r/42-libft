@@ -39,7 +39,8 @@ BONUS	= ft_lstnew.c \
 		  ft_lstsize.c \
 		  ft_lstlast.c \
 		  ft_lstadd_back.c \
-		  ft_lstdelone.c
+		  ft_lstdelone.c \
+		  ft_lstclear.c
 BOBJS	= ${BONUS:.c=.o}
 INCD	= ./
 NAME	= libft.a
@@ -75,18 +76,19 @@ check:
 			norminette ft_*.c libft.h -R CheckForbiddenSourceHeader
 
 test:		${NAME}
-			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
-			tests/tests.out
-			rm tests/tests.out
+			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
+			./tests.out && rm tests/tests.out
 
 bonus_test:	bonus
-			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
-			tests/tests.out
-			rm tests/tests.out
+			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
+			./tests.out && rm tests/tests.out
 
 
 valtest:	${NAME}
-			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests/tests.out
-			time valgrind ${VALGRIND} tests/tests.out
-			rm tests/tests.out
+			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
+			time valgrind ${VALGRIND} ./tests.out && rm tests.out
+
+bonvaltest:	bonus
+			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
+			time valgrind ${VALGRIND} ./tests.out && rm tests.out
 
