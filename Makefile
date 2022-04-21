@@ -40,7 +40,8 @@ BONUS	= ft_lstnew.c \
 		  ft_lstlast.c \
 		  ft_lstadd_back.c \
 		  ft_lstdelone.c \
-		  ft_lstclear.c
+		  ft_lstclear.c \
+		  ft_lstiter.c
 BOBJS	= ${BONUS:.c=.o}
 INCD	= ./
 NAME	= libft.a
@@ -77,11 +78,11 @@ check:
 
 test:		${NAME}
 			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			./tests.out && rm tests/tests.out
+			./tests.out && rm tests.out
 
 bonus_test:	bonus
 			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			./tests.out && rm tests/tests.out
+			./tests.out && rm tests.out
 
 
 valtest:	${NAME}
