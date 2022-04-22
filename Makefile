@@ -61,6 +61,7 @@ ${NAME}:	${OBJS}
 
 bonus:		${NAME} ${BOBJS}
 			ar rcs ${NAME} ${BOBJS}
+			touch bonus
 
 all:		${NAME}
 
@@ -69,6 +70,7 @@ clean:
 
 fclean:		clean
 			${RM} ${NAME}
+			${RM} bonus
 
 re:			fclean all
 
