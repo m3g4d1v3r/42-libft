@@ -6,25 +6,44 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/20 18:45:04 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:45:39 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
+char	*ft_shrink_result(char *temp, size_t actual_len) {
+	char	*result;
+
+	result = (char *) malloc(sizeof(char) * actual_len);
+	ft_memcpy(result, temp, actual_len);
+	free(temp);
+	return (result);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
+	char	*temp;
+	size_t	slen;
 	size_t	index;
 
-	substr = (char *) malloc(sizeof(char) * len);
-	if (substr == NULLPTR)
+	slen = ft_strlen(s);
+	if (start >= slen)
+		return (ft_strdup(""));
+	if (len > slen)
+		return (ft_strdup((char *) s));
+
+	temp = (char *) malloc(sizeof(char) * (len + 1));
+	if (temp == NULLPTR)
 		return (NULLPTR);
 	index = 0;
-	while (index < len)
+	while (index < len && (start + index) < slen)
 	{
-		substr[index] = s[start + index];
+		temp[index] = s[start + index];
 		index++;
 	}
-	return (substr);
+	temp[index++] = '\0';
+	if (index < (len + 1))
+		return (ft_shrink_result(temp, index));
+	return (temp);
 }

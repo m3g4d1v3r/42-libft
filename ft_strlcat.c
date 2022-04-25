@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 20:56:36 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/06 21:18:53 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:47:04 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	byte_offset;
+	size_t	dst_strlen;
+	size_t	src_strlen;
+	size_t	n;
 
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	byte_offset = 0;
-	while (byte_offset < (dstsize - dst_len - 1))
+	dst_strlen = ft_strlen(dst);
+	src_strlen = ft_strlen(src);
+	if (dst_strlen >= dstsize)
+		return (dstsize + src_strlen);
+	if (src_strlen == 0)
+		return (dst_strlen);
+	n = dstsize - dst_strlen;
+	while (*src != '\0' && --n != 0)
 	{
-		*(dst + dst_len + byte_offset) = *(src + byte_offset);
-		byte_offset++;
+		*(dst + dst_strlen) = *src++;
+		dst++;
 	}
-	*(dst + dst_len + byte_offset) = '\0';
-	return (dst_len + src_len);
+	*(dst + dst_strlen) = '\0';
+	return (dst_strlen + src_strlen);
 }

@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/20 18:46:18 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/25 18:16:34 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_fill(char const *s1, int offset, size_t len)
 	char	*res;
 	size_t	index;
 
-	res = (char *) malloc(sizeof(char) * len);
+	res = (char *) malloc(sizeof(char) * (len + 1));
 	if (res == NULLPTR)
 		return (NULLPTR);
 	index = 0;
@@ -57,6 +57,7 @@ char	*ft_fill(char const *s1, int offset, size_t len)
 		res[index] = s1[offset + index];
 		index++;
 	}
+	res[index] = '\0';
 	return (res);
 }
 
@@ -71,5 +72,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	low_index = ft_low_offset(s1, set, len);
 	high_index = ft_high_offset(s1, set, len);
+	if ((low_index == len) || (high_index == 0))
+		return (ft_strdup(""));
 	return (ft_fill(s1, low_index, (high_index - low_index + 1)));
 }
