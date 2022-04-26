@@ -19,7 +19,7 @@ Test(calloc, functional_test) {
 
 Test(calloc, overflow_test) {
 	size_t nmemb = SIZE_MAX;
-	size_t size = SIZE_MAX;
+	size_t size = 1;
 
 	t_uchar *expected = (t_uchar *) calloc(nmemb, size);
 	t_uchar *actual = (t_uchar *) ft_calloc(nmemb, size);
