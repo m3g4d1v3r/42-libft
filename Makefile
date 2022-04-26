@@ -60,6 +60,7 @@ ${NAME}:	${OBJS}
 
 bonus:		${NAME} ${BOBJS}
 			ar rcs ${NAME} ${BOBJS}
+			touch bonus
 
 all:		${NAME}
 
