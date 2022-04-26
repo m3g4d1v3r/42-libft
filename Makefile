@@ -51,7 +51,6 @@ CC		= gcc
 RM		= rm -f
 
 CFLAGS	= -g -Wall -Werror -Wextra -I${INCD}
-VALGRIND = --trace-children=yes --leak-check=full --quiet --fair-sched=yes
 
 %.o:		${SRCD}%.c
 			${CC} ${CFLAGS} -c $< -o $@
@@ -61,11 +60,12 @@ ${NAME}:	${OBJS}
 
 bonus:		${NAME} ${BOBJS}
 			ar rcs ${NAME} ${BOBJS}
+			touch bonus
 
 all:		${NAME}
 
 clean:
-			${RM} ${OBJS} ${BOBJS}
+			${RM} ${OBJS} ${BOBJS} bonus
 
 fclean:		clean
 			${RM} ${NAME}
@@ -73,24 +73,3 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
-
-check:
-			norminette ft_*.c libft.h -R CheckForbiddenSourceHeader
-
-test:		${NAME}
-			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			./tests.out && rm tests.out
-
-bonus_test:	bonus
-			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			./tests.out && rm tests.out
-
-
-valtest:	${NAME}
-			gcc -g tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			time valgrind ${VALGRIND} ./tests.out && rm tests.out
-
-bonvaltest:	bonus
-			gcc -g bonus_tests/*.c -L. -lbsd -lft -lcriterion -I. -o tests.out
-			time valgrind ${VALGRIND} ./tests.out && rm tests.out
-

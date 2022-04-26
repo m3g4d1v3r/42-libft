@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 19:49:30 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 19:51:04 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/26 11:12:39 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	byte_offset = 0;
 	aux_src = (t_uchar *) src;
 	aux_dest = (t_uchar *) dest;
+	if (dest == NULLPTR && src == NULLPTR)
+		return (NULLPTR);
 	while (byte_offset < n)
 	{
 		*(aux_dest + byte_offset) = *(aux_src + byte_offset);
