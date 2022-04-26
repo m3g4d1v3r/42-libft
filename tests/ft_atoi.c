@@ -10,7 +10,7 @@ Test(atoi, simple_atoi0) {
 }
 
 Test(atoi, simple_atoi1) {
-	char nptr[] = "                  42                                ";
+	char nptr[] = "                  -42                                ";
 	cr_assert(ft_atoi(nptr) == atoi(nptr));
 }
 
@@ -24,8 +24,12 @@ Test(atoi, simple_atoi3) {
 	cr_assert(ft_atoi(nptr) == atoi(nptr));
 }
 
-Test(atoi, simple_atoi4) {
+Test(atoi, long_value) {
 	char nptr[] = "123489140267341879020894671023460";
 	cr_assert(ft_atoi(nptr) == atoi(nptr));
 }
 
+Test(atoi, minus_long_value) {
+	char nptr[] = "-123489140267341879020894671023460";
+	cr_assert(ft_atoi(nptr) == atoi(nptr));
+}

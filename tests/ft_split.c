@@ -41,3 +41,21 @@ Test(split, simple1) {
 	}
 	free(actual);
 }
+
+Test(split, notsosimple0) {
+	char *in = "           split    this    for me !";
+	char *expected[] = {
+		(void *) 0
+	};
+	char **actual = ft_split(in, ' ');
+	size_t aux_i = 0;
+	while (actual[aux_i] != (void *) 0 && expected[aux_i] != (void *) 0) {
+		printf("%s\n", actual[aux_i]);
+		// cr_assert(eq(int, ft_strncmp(actual[aux_i], expected[aux_i], ft_strlen(expected[aux_i])), 0));
+		free(actual[aux_i]);
+		aux_i++;
+	}
+	free(actual);
+}
+
+

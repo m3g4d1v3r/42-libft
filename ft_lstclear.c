@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:36:03 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/20 21:35:43 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/25 23:45:21 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		free(curr);
 		curr = next;
 	}
+	*lst = NULLPTR;
 }
