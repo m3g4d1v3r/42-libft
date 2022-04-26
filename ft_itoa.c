@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:24:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/26 00:04:08 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:29:58 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,16 @@ char	*ft_allocate_int_str(size_t size, short neg)
 	if (neg)
 	{
 		str = (char *) malloc(sizeof(char) * (size + 2));
+		if (str == NULLPTR)
+			return (NULLPTR);
 		str[0] = '-';
 		str[1] = '0';
 		str[size + 1] = '\0';
 		return (str + 1);
 	}
 	str = (char *) malloc(sizeof(char) * (size + 1));
+	if (str == NULLPTR)
+		return (NULLPTR);
 	str[0] = '0';
 	str[size] = '\0';
 	return (str);
@@ -80,6 +84,8 @@ char	*ft_itoa(int n)
 		aux_n *= -1;
 	size = ft_int_size(aux_n);
 	str = ft_allocate_int_str(size, n < 0);
+	if (str == NULLPTR)
+		return (NULLPTR);
 	while (aux_n >= 1)
 	{
 		*str = '0' + (aux_n % 10);

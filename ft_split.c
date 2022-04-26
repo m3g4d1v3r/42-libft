@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/25 21:53:15 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:04:15 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,12 @@ char	**ft_split(char const *s, char c)
 	char	delimiter_set[1];
 	size_t	substrings_nb;
 
+	if (s == NULLPTR)
+		return ((char **) NULLPTR);
 	substrings_nb = ft_get_substrs_nb(s, c);
 	table = (char **) malloc(sizeof(char *) * (substrings_nb + 1));
+	if (table == NULLPTR)
+		return ((char **) NULLPTR);
 	if (substrings_nb > 1)
 		ft_fill_table(table, --s, c);
 	else if (substrings_nb == 1)

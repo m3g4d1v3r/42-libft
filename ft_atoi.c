@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 22:01:16 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/25 16:23:03 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/26 13:39:34 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,31 @@ int	ft_treatsignal(const char *nptr, int *signal)
 int	ft_detectoverflow(int acc, const char chr, int signal)
 {
 	long	max_value;
+	int		overflow_value;
 
+	overflow_value = 0;
 	if (signal > 0)
+	{
 		max_value = INT_MAX;
+		overflow_value = -1;
+	}
 	else
+	{
 		max_value = -1 * (long) INT_MIN;
+		overflow_value = 0;
+	}
 	if (acc > max_value / 10)
-		return (1);
+		return (overflow_value);
 	if (10 * acc > max_value - (chr - '0'))
-		return (1);
-	return (0);
+		return (overflow_value);
+	return (1);
 }
 
 int	ft_atoi(const char *nptr)
 {
 	int	acc;
 	int	signal;
+	int	overflow;
 
 	acc = 0;
 	signal = 0;
@@ -77,8 +86,9 @@ int	ft_atoi(const char *nptr)
 		{
 			if (signal == 0)
 				signal = 1;
-			if (ft_detectoverflow(acc, *nptr, signal) == 1)
-				return (-1);
+			overflow = ft_detectoverflow(acc, *nptr, signal);
+			if (overflow == 0 || overflow == -1)
+				return (overflow);
 			acc = 10 * acc + (*nptr - '0');
 		}
 		else if ((ft_isspace(*nptr) == 0 && ft_issignal(*nptr) == 0) || signal)
@@ -87,7 +97,5 @@ int	ft_atoi(const char *nptr)
 			break ;
 		nptr++;
 	}
-	if (signal != 0)
-		return (signal * acc);
-	return (acc);
+	return (signal * acc);
 }
