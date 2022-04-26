@@ -51,7 +51,6 @@ CC		= gcc
 RM		= rm -f
 
 CFLAGS	= -g -Wall -Werror -Wextra -I${INCD}
-VALGRIND = --trace-children=yes --leak-check=full --quiet --fair-sched=yes
 
 %.o:		${SRCD}%.c
 			${CC} ${CFLAGS} -c $< -o $@
