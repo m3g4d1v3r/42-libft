@@ -6,17 +6,19 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:24:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/19 23:30:38 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/25 22:53:45 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-size_t	ft_int_size(int n)
+size_t	ft_int_size(long n)
 {
 	size_t	size;
 
 	size = 0;
+	if (n == 0)
+		return (1);
 	while (n >= 1)
 	{
 		n /= 10;
@@ -33,10 +35,12 @@ char	*ft_allocate_int_str(size_t size, short neg)
 	{
 		str = (char *) malloc(sizeof(char) * (size + 2));
 		str[0] = '-';
+		str[1] = '0';
 		str[size + 1] = '\0';
-		return (str);
+		return (str + 1);
 	}
 	str = (char *) malloc(sizeof(char) * (size + 1));
+	str[0] = '0';
 	str[size] = '\0';
 	return (str);
 }
@@ -67,25 +71,32 @@ void	ft_reverse_str(char *str, size_t size, short neg)
 
 char	*ft_itoa(int n)
 {
+	long	aux_n;
 	short	neg;
 	char	*str;
-	size_t	index;
 	size_t	size;
 
+	aux_n = n;
 	neg = 0;
-	index = 0;
-	if (n < 0)
+	if (aux_n < 0)
 	{
 		neg = 1;
-		index = 1;
-		n *= -1;
+		aux_n *= -1;
 	}
-	size = ft_int_size(n);
+	size = ft_int_size(aux_n);
 	str = ft_allocate_int_str(size, neg);
-	while (n)
+	while (aux_n >= 1)
 	{
-		str[index++] = '0' + (n % 10);
-		n /= 10;
+		*str = '0' + (aux_n % 10);
+		aux_n /= 10.0;
+		str++;
+	}
+	if (n != 0)
+	{
+		if (neg)
+			str -= (size + 1);
+		else
+			str -= size;
 	}
 	ft_reverse_str(str, size, neg);
 	return (str);
