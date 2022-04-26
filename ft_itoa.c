@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:24:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/25 22:53:45 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/04/26 00:04:08 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,32 +72,24 @@ void	ft_reverse_str(char *str, size_t size, short neg)
 char	*ft_itoa(int n)
 {
 	long	aux_n;
-	short	neg;
 	char	*str;
 	size_t	size;
 
 	aux_n = n;
-	neg = 0;
-	if (aux_n < 0)
-	{
-		neg = 1;
+	if (n < 0)
 		aux_n *= -1;
-	}
 	size = ft_int_size(aux_n);
-	str = ft_allocate_int_str(size, neg);
+	str = ft_allocate_int_str(size, n < 0);
 	while (aux_n >= 1)
 	{
 		*str = '0' + (aux_n % 10);
 		aux_n /= 10.0;
 		str++;
 	}
-	if (n != 0)
-	{
-		if (neg)
-			str -= (size + 1);
-		else
-			str -= size;
-	}
-	ft_reverse_str(str, size, neg);
+	if (n != 0 && n < 0)
+		str -= (size + 1);
+	else if (n != 0)
+		str -= size;
+	ft_reverse_str(str, size, n < 0);
 	return (str);
 }
