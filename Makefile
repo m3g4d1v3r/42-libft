@@ -65,7 +65,7 @@ bonus:		${NAME} ${BOBJS}
 all:		${NAME}
 
 clean:
-			${RM} ${OBJS} ${BOBJS}
+			${RM} ${OBJS} ${BOBJS} bonus
 
 fclean:		clean
 			${RM} ${NAME}
