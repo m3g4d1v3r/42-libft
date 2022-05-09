@@ -6,7 +6,7 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 23:20:38 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/26 13:00:19 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/09 20:36:04 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res_ptr;
 
+	if (size == 0 || nmemb == 0)
+		return (malloc(0));
 	if (nmemb > SIZE_MAX / size)
 		return (NULLPTR);
 	res_ptr = malloc(nmemb * size);
