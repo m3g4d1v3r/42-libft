@@ -6,13 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 23:54:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/26 13:27:21 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:27:41 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_base_ten_nbr(long n)
+static int	ft_base_ten_nbr(long n)
 {
 	int	base;
 

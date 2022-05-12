@@ -6,30 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/26 13:04:15 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:33:54 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace_split(const char chr)
-{
-	if (chr == ' ')
-		return (1);
-	else if (chr == '\t')
-		return (1);
-	else if (chr == '\n')
-		return (1);
-	else if (chr == '\v')
-		return (1);
-	else if (chr == '\f')
-		return (1);
-	else if (chr == '\r')
-		return (1);
-	return (0);
-}
-
-size_t	ft_strlen_split(char const *s, char c)
+static size_t	ft_strlen_split(char const *s, char c)
 {
 	size_t	len;
 
@@ -42,7 +25,7 @@ size_t	ft_strlen_split(char const *s, char c)
 	return (len);
 }
 
-size_t	ft_get_substrs_nb(char const *s, char c)
+static size_t	ft_get_substrs_nb(char const *s, char c)
 {
 	size_t	substrs_nb;
 	short	word_state;
@@ -67,7 +50,7 @@ size_t	ft_get_substrs_nb(char const *s, char c)
 	return (substrs_nb);
 }
 
-void	ft_fill_table(char **dst, char const *s, char c)
+static void	ft_fill_table(char **dst, char const *s, char c)
 {
 	short	word_state;
 	size_t	str_index;

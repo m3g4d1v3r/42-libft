@@ -6,26 +6,11 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/05/11 22:21:47 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:35:49 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-char	*ft_shrink_result(char *temp, size_t actual_len)
-{
-	char	*result;
-
-	result = (char *) malloc(sizeof(char) * actual_len);
-	if (result == NULLPTR)
-	{
-		free(result);
-		return (temp);
-	}
-	ft_memcpy(result, temp, actual_len);
-	free(temp);
-	return (result);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -50,7 +35,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		index++;
 	}
 	temp[index++] = '\0';
-	if (index < (len + 1))
-		return (ft_shrink_result(temp, index));
 	return (temp);
 }

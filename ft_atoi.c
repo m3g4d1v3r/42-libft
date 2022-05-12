@@ -6,13 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 22:01:16 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/26 13:39:34 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:22:22 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(const char chr)
+static int	ft_isspace(const char chr)
 {
 	if (chr == ' ')
 		return (1);
@@ -29,7 +29,7 @@ int	ft_isspace(const char chr)
 	return (0);
 }
 
-int	ft_issignal(const char chr)
+static int	ft_issignal(const char chr)
 {
 	if (chr == '+')
 		return (1);
@@ -38,7 +38,7 @@ int	ft_issignal(const char chr)
 	return (0);
 }
 
-int	ft_treatsignal(const char *nptr, int *signal)
+static int	ft_treatsignal(const char *nptr, int *signal)
 {
 	if (*signal != 0)
 		return (0);
@@ -49,7 +49,7 @@ int	ft_treatsignal(const char *nptr, int *signal)
 	return (1);
 }
 
-int	ft_detectoverflow(int acc, const char chr, int signal)
+static int	ft_detectoverflow(int acc, const char chr, int signal)
 {
 	long	max_value;
 	int		overflow_value;
