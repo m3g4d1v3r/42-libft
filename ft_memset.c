@@ -6,11 +6,11 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:01:47 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 19:51:36 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:33:00 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

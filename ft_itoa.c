@@ -6,13 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 21:24:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/26 13:29:58 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:25:24 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-size_t	ft_int_size(long n)
+static size_t	ft_int_size(long n)
 {
 	size_t	size;
 
@@ -27,7 +27,7 @@ size_t	ft_int_size(long n)
 	return (size);
 }
 
-char	*ft_allocate_int_str(size_t size, short neg)
+static char	*ft_allocate_int_str(size_t size, short neg)
 {
 	char	*str;
 
@@ -49,7 +49,7 @@ char	*ft_allocate_int_str(size_t size, short neg)
 	return (str);
 }
 
-void	ft_swap_chr(char *p1, char *p2)
+static void	ft_swap_chr(char *p1, char *p2)
 {
 	char	tmp;
 
@@ -58,7 +58,7 @@ void	ft_swap_chr(char *p1, char *p2)
 	*p2 = tmp;
 }
 
-void	ft_reverse_str(char *str, size_t size, short neg)
+static void	ft_reverse_str(char *str, size_t size, short neg)
 {
 	size_t	index;
 

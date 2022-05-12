@@ -6,13 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:31:45 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/25 18:16:34 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:29:46 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-short	ft_chrcmpset(char const chr, char const *set)
+static short	ft_chrcmpset(char const chr, char const *set)
 {
 	while (*set)
 	{
@@ -23,7 +23,7 @@ short	ft_chrcmpset(char const chr, char const *set)
 	return (0);
 }
 
-int	ft_low_offset(char const *s1, char const *set, size_t len)
+static int	ft_low_offset(char const *s1, char const *set, size_t len)
 {
 	int	low_index;
 
@@ -33,7 +33,7 @@ int	ft_low_offset(char const *s1, char const *set, size_t len)
 	return (low_index);
 }
 
-int	ft_high_offset(char const *s1, char const *set, size_t len)
+static int	ft_high_offset(char const *s1, char const *set, size_t len)
 {
 	int	high_index;
 
@@ -43,7 +43,7 @@ int	ft_high_offset(char const *s1, char const *set, size_t len)
 	return (high_index);
 }
 
-char	*ft_fill(char const *s1, int offset, size_t len)
+static char	*ft_fill(char const *s1, int offset, size_t len)
 {
 	char	*res;
 	size_t	index;

@@ -6,20 +6,20 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 22:13:36 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/25 17:54:48 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:37:40 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 #define BASE 0x10
 #define BASE_SHIFTER 4
 
-size_t	ft_bin_base_msb(size_t base_shifter, size_t exp)
+static size_t	ft_bin_base_msb(size_t base_shifter, size_t exp)
 {
 	return (1 << (base_shifter * (exp)));
 }
 
-size_t	ft_hash(const char *str, size_t str_len)
+static size_t	ft_hash(const char *str, size_t str_len)
 {
 	size_t	hash;
 	size_t	i;
@@ -34,12 +34,12 @@ size_t	ft_hash(const char *str, size_t str_len)
 	return (hash);
 }
 
-size_t	ft_rolling_hash(char newc, char oldc, size_t pow, size_t lhash)
+static size_t	ft_rolling_hash(char newc, char oldc, size_t pow, size_t lhash)
 {
 	return (0x10 * (lhash - (oldc * pow)) + newc);
 }
 
-short	ft_check_if_matches(const char *str1, const char *str2, size_t len)
+static short	ft_matches(const char *str1, const char *str2, size_t len)
 {
 	while (len--)
 	{
@@ -68,7 +68,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (*(big + l_len - 1) != '\0' && len)
 	{
 		if (b_hash == l_hash)
-			if (ft_check_if_matches(big, little, l_len))
+			if (ft_matches(big, little, l_len))
 				return ((char *) big);
 		b_hash = ft_rolling_hash(*(big + l_len), *(big), pow, b_hash);
 		big++;

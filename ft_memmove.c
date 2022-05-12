@@ -6,13 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:58:29 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/05 19:48:31 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 22:27:06 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-void	*ft_move_desc(void *dest, const void *src, size_t n)
+static void	*ft_move_desc(void *dest, const void *src, size_t n)
 {
 	size_t	byte_offset;
 	t_uchar	*aux_dest;
@@ -30,7 +30,7 @@ void	*ft_move_desc(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-void	*ft_move_asc(void *dest, const void *src, size_t n)
+static void	*ft_move_asc(void *dest, const void *src, size_t n)
 {
 	size_t	byte_offset;
 	t_uchar	*aux_dest;
