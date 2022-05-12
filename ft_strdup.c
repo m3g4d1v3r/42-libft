@@ -6,13 +6,13 @@
 /*   By: msubtil- <msubtil-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 22:03:13 by msubtil-          #+#    #+#             */
-/*   Updated: 2022/04/20 18:42:01 by msubtil-         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:52:43 by msubtil-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	char	*new_str;
 	size_t	str_size;
